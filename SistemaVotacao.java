@@ -7,19 +7,17 @@ public class SistemaVotacao {
     static final int TOTAL_TURMAS = 3;
     static final int MAX_VOTANTES_POR_TURMA = 10;
 
-    int[] numCandi = new int[MAX_CANDIDATOS];
-    String[] nomCandi = new String[MAX_CANDIDATOS];
-    int[] votCandi = new int[MAX_CANDIDATOS];
-    int[][] votPorTurma = new int[TOTAL_TURMAS][MAX_VOTANTES_POR_TURMA];
-    int[] quantiVtTurma = new int[TOTAL_TURMAS];
-    int quantiCandi = 0;
+    static int[] numerosCandidatos = new int[MAX_CANDIDATOS];
+    static String[] nomesCandidatos = new String[MAX_CANDIDATOS];
+    static int[] votosCandidatos = new int[MAX_CANDIDATOS];
+    static int[][] votosPorTurma = new int[TOTAL_TURMAS][MAX_VOTANTES_POR_TURMA];
+    static int[] quantidadeVotosTurma = new int[TOTAL_TURMAS];
+    static int quantidadeCandidatos = 0;
 
 
     public static void main(String[] args) {
 
         System.out.println("Sistema de votação iniciado.");
-
-        
 
         int opcao;
 
@@ -75,4 +73,22 @@ public class SistemaVotacao {
             scanner.nextLine();
         }
     }
+static void cadastrarCandidatos() {
+    if (quantidadeCandidatos > 0) {
+        System.out.println("Os candidatos já foram cadastrados.");
+        return;
+    }
+
+    int quantidade;
+
+    do {
+        quantidade = lerInteiro(
+                "Quantidade de candidatos entre 1 e 5: "
+        );
+
+        if (quantidade < 1 || quantidade > MAX_CANDIDATOS) {
+            System.out.println("Quantidade inválida.");
+        }
+    } while (quantidade < 1 || quantidade > MAX_CANDIDATOS);
+}
 }
