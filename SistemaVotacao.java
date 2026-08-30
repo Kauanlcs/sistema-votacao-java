@@ -135,4 +135,19 @@ static void cadastrarCandidatos() {
         quantidadeCandidatos++;
     }
 }
+
+    static int buscarCandidato(int numero) {
+        int indiceEncontrado = -1;
+
+        for (int i = 0; i < quantidadeCandidatos; i++) {
+            if (numerosCandidatos[i] == numero) {
+                indiceEncontrado = i;
+                break;
+            }
+        }
+
+        return indiceEncontrado;
+    }
 }
+
+
